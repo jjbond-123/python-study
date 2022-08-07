@@ -1,0 +1,83 @@
+源数据
+5497 click_sum:3 percent:100.0%
+4826 click_sum:1 percent:0.0%
+6522 click_sum:201 percent:51.24%
+6367 click_sum:712 percent:1.83%
+6368 click_sum:1462 percent:4.79%
+5346 click_sum:733 percent:6.68%
+3812 click_sum:29 percent:0.0%
+4841 click_sum:851 percent:0.0%
+5873 click_sum:217 percent:28.57%
+6316 click_sum:4 percent:0.0%
+6900 click_sum:28 percent:7.14%
+7416 click_sum:6 percent:0.0%
+6989 click_sum:50 percent:0.0%
+6990 click_sum:21 percent:0.0%
+4944 click_sum:15 percent:100.0%
+6485 click_sum:88 percent:0.0%
+7039 click_sum:28 percent:92.86%
+2432 click_sum:153 percent:5.88%
+6018 click_sum:4 percent:0.0%
+6024 click_sum:28 percent:100.0%
+1930 click_sum:175 percent:6.29%
+2444 click_sum:3725 percent:7.54%
+2451 click_sum:3505 percent:0.23%
+7060 click_sum:111 percent:51.35%
+3989 click_sum:715 percent:41.54%
+6039 click_sum:42 percent:0.0%
+2457 click_sum:13 percent:46.15%
+5530 click_sum:64 percent:0.0%
+7582 click_sum:124 percent:0.81%
+7071 click_sum:8 percent:0.0%
+5537 click_sum:5 percent:100.0%
+4763 click_sum:1 percent:100.0%
+5540 click_sum:186 percent:0.54%
+5033 click_sum:2337 percent:73.47%
+4522 click_sum:1668 percent:0.54%
+4523 click_sum:62 percent:1.61%
+7084 click_sum:432 percent:1.85%
+6063 click_sum:247 percent:0.0%
+5553 click_sum:68 percent:0.0%
+6583 click_sum:13 percent:100.0%
+6127 click_sum:22 percent:0.0%
+6057 click_sum:6 percent:0.0%
+6138 click_sum:15 percent:6.67%
+4607 click_sum:10 percent:0.0%
+6652 click_sum:8 percent:0.0%
+4010 click_sum:1 percent:100.0%
+3583 click_sum:2239 percent:36.8%
+4446"in_offer_id":107466987-"in_affiliate_id":4631-"result_code":1604
+1649"in_offer_id":98399105-"in_affiliate_id":5988-"result_code":1607
+800"in_offer_id":106901072-"in_affiliate_id":4666-"result_code":1604
+594"in_offer_id":106351217-"in_affiliate_id":7373-"result_code":1604
+531"in_offer_id":107466987-"in_affiliate_id":3882-"result_code":1606
+393"in_offer_id":108314256-"in_affiliate_id":5411-"result_code":1601
+356"in_offer_id":108230131-"in_affiliate_id":5033-"result_code":1601
+291"in_offer_id":108230207-"in_affiliate_id":5033-"result_code":1604
+284"in_offer_id":108923434-"in_affiliate_id":3583-"result_code":1604
+210"in_offer_id":108231457-"in_affiliate_id":5033-"result_code":1800
+
+
+
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+f = open('./1.txt',encoding='utf-8')
+f1 = f.read().split('\n')
+f.close()
+f2 = []
+for i in f1:
+    if 'click_sum' in i:
+        sum1 = (i.split('click_sum:')[-1]).split(' ')[0]
+        percen = (i.split(':')[-1].split('%')[0])
+        sum = int(sum1)
+        per = float(percen)
+        if sum > 100 and per > 30:
+            f2.append([i,per])
+print(f2)
+def n(l):
+    return l[1]
+f3 = f2.sort(key=n,reverse=True)
+for t in f2:
+    print(t[0])
+

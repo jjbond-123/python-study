@@ -1,0 +1,45 @@
+在python中json模块
+json.dump、json.dumps() 和 json.load()
+1、json.dump():使用这个模块时，这是将一个字典的内容写进一个文档中
+创建一个空文档：f.txt
+例：
+import json
+data = [{"a":"aaa","b":"BBB","c":[1,2,3,(4,5,6)]},33,'tantengvip',True]
+m = open('./f','a')
+json.dump(data,m)    #格式：json.dump(x,f)
+会将data中的内容打印在f文档中
+
+2、json.dumps():使用这个模块是，就将一个list列表对象，进行了json格式的编码转换
+例：
+import json
+data = [{"a":"aaa","b":"BBB","c":[1,2,3,(4,5,6)]},33,'tantengvip',True]
+data2 = json.dumps(data,indent='\t')
+print(data2)
+
+3、json.load():使用这个模块是，将一个文件中的字符，打印成列表的形式
+创建一个文件，里面由数据
+import json
+data =  [{"a":"aaa","b":"BBB","c":[1,2,3,(4,5,6)]},33,'tantengvip',True]
+data3 = json.load(f)
+
+补充：‘\t’:会自动补全Tab键
+          ‘\n'  :自动换行
+
+扩展：
+转义字符	                描述
+\(在行尾时)	续行符
+\\	             反斜杠符号
+\’	                单引号
+\”	                双引号
+\a	                  响铃
+\b	        退格(Backspace)
+\e	                  转义
+\000	                  空
+\n	                 换行
+\v	            纵向制表符
+\t	           横向制表符
+\r	                 回车
+\f                     	换页
+\oyy	   八进制数yy代表的字符，例如：\o12代表换行
+\xyy	  十进制数yy代表的字符，例如：\x0a代表换行
+\other	  其它的字符以普通格式输出
